@@ -12,5 +12,7 @@
 
         public string ImageUrl { get; set; }
 
+        public string TestIcınEklendi { get; set; }
+
     }
 }
