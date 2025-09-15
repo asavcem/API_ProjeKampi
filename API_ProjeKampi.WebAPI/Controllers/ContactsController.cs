@@ -39,5 +39,36 @@ namespace API_ProjeKampi.WebAPI.Controllers
 
             return Ok("İletişim bilgileri eklendi. ");
         }
+
+        [HttpDelete]
+        public IActionResult DeleteContacts(int Id)
+        {
+            var value = _context.Contacts.Find();
+            _context.Contacts.Remove(value);
+            _context.SaveChanges();
+            return Ok("İlteişim bilgileri silindi. ");
+        }
+
+        [HttpGet("GetContact")]
+        public IActionResult GetContact(int Id)
+        {
+            var value = _context.Contacts.Find(Id);
+            return Ok(value);
+        }
+
+        [HttpPut]
+        public IActionResult PutContact(UpdateContactDto updateContactDto)
+        {
+            Contact contact = new Contact();
+            contact.Phone = updateContactDto.Phone;
+            contact.Email = updateContactDto.Email;
+            contact.Address = updateContactDto.Address;
+            contact.MapLocation = updateContactDto.MapLocation;
+            contact.OpenHours = updateContactDto.OpenHours;
+            contact.ContactId = updateContactDto.ContactId;
+            _context.Contacts.Update(contact);
+            _context.SaveChanges();
+            return Ok("İletişim bilgileri güncellendi. ");
+        }
     }
 }
