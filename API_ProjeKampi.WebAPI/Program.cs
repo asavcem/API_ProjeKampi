@@ -1,4 +1,6 @@
 using API_ProjeKampi.WebAPI.Context;
+using System.Reflection;
+using AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,6 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddDbContext<API_Context>();
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
