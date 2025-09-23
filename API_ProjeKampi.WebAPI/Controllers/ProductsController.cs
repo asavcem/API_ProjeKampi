@@ -43,5 +43,40 @@ namespace API_ProjeKampi.WebAPI.Controllers
                 data = product
             });
         }
+
+        [HttpDelete]
+        public IActionResult DeleteProduct(int id)
+        {
+            var value = _context.Products.Find(id);
+            _context.Products.Remove(value);
+            _context.SaveChanges();
+            return Ok("Ürün silme işlemi başarılı.");
+        }
+
+        [HttpGet("GetByIdProduct")]
+        public IActionResult GetByIdProduct(int id)
+        {
+            var value = _context.Products.Find(id);
+            return Ok(value);
+        }
+
+        [HttpPut]
+        public IActionResult PutProduct(Product product)
+        {
+            var validationResult = _validator.Validate(product);
+            if (!validationResult.IsValid)
+            {
+                return BadRequest(validationResult.Errors.Select(x => x.ErrorMessage));
+            }
+
+            _context.Products.Update(product);
+            _context.SaveChanges();
+            return Ok(new
+            {
+                message = "Ürün güncelleme işlemi başarılı.",
+                data = product
+            });
+        }
+
     }
 }
