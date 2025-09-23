@@ -1,8 +1,11 @@
 ﻿using API_ProjeKampi.WebAPI.Context;
+using API_ProjeKampi.WebAPI.Dtos.ProductDtos;
 using API_ProjeKampi.WebAPI.Entities;
+using AutoMapper;
 using FluentValidation;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace API_ProjeKampi.WebAPI.Controllers
 {
@@ -12,11 +15,13 @@ namespace API_ProjeKampi.WebAPI.Controllers
     {
         private readonly IValidator<Product> _validator;
         private readonly API_Context _context;
+        private readonly IMapper _mapper;
 
-        public ProductsController(IValidator<Product> validator, API_Context context)
+        public ProductsController(IValidator<Product> validator, API_Context context, IMapper mapper)
         {
             _validator = validator;
             _context = context;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -27,15 +32,16 @@ namespace API_ProjeKampi.WebAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult PostProduct(Product product)
+        public IActionResult PostProduct(CreateProductDto product)
         {
-            var validationResult = _validator.Validate(product);
+            var valueMap = _mapper.Map<Product>(product);
+            var validationResult = _validator.Validate(valueMap);
             if (!validationResult.IsValid)
             {
                 return BadRequest(validationResult.Errors.Select(x => x.ErrorMessage));
             }
 
-            _context.Products.Add(product);
+            _context.Products.Add(valueMap);
             _context.SaveChanges();
             return Ok(new
             {
@@ -76,6 +82,13 @@ namespace API_ProjeKampi.WebAPI.Controllers
                 message = "Ürün güncelleme işlemi başarılı.",
                 data = product
             });
+        }
+
+        [HttpGet("ProductListWithCategory")]
+        public IActionResult ProductListWithCategory()
+        {
+            var value = _context.Products.Include(x => x.Categories);
+            return Ok(_mapper.Map<List<ResultProductListWithCategoriesDto>>(value));
         }
 
     }

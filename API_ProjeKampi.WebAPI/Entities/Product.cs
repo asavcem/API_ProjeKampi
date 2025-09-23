@@ -14,6 +14,6 @@
 
         public int? CategoryID { get; set; }
 
-        public List<Category> Categories { get; set; }
+        public Category Categories { get; set; }
     }
 }
