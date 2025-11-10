@@ -9,3 +9,25 @@ Deneyimli mutfak ekibimiz, her tarife özgün bir yorum katarak eşsiz lezzetler
 
 Sıcak ve Huzurlu Ortam
 Yummy’de yemek, sadece lezzet değil; keyifli bir atmosferde geçirilen güzel anların da adresidir.
+
+
+| İngilizce                | Türkçe                               |
+| ------------------------ | ------------------------------------ |
+| **OUR MENU**             | **MENÜMÜZ**                          |
+| **Check Our Yummy Menu** | **Lezzetli Yummy Menümüze Göz Atın** |
+| **Starters**             | **Başlangıçlar**                     |
+| **Breakfast**            | **Kahvaltılar**                      |
+| **Lunch**                | **Öğle Yemekleri**                   |
+| **Dinner**               | **Akşam Yemekleri**                  |
+| **MENU**                 | **MENÜ**                             |
+
+
+| İngilizce Başlık      | Türkçe Başlık             | Alt Açıklama (benzer uzunlukta)       | Fiyat    |
+| --------------------- | ------------------------- | ------------------------------------- | -------- |
+| **Magnam Tiste**      | **Mozzarella Isırıkları** | Kızarmış, çıtır, nefis peynir topları | **₺185** |
+| **Aut Luia**          | **Tavuk Sarma**           | Baharatlı tavuk, köz sebze, özel sos  | **₺440** |
+| **Est Eligendi**      | **Zeytinyağlı Meze**      | Hafif, soğuk ve taze başlangıç tabak  | **₺260** |
+| **Eos Luibusdam**     | **Karides Tava**          | Tereyağında sarımsaklı mini karides   | **₺380** |
+| **Eos Luibusdam**     | **Izgara Köfte**          | Dana kıymadan, ızgara lezzetli köfte  | **₺380** |
+| **Laboriosam Direva** | **Kremalı Makarna**       | Parmesanlı, krema soslu nefis makarna | **₺295** |
+
