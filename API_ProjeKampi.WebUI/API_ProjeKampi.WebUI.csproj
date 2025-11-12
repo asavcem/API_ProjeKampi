@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -6,12 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="wwwroot\otika-bootstrap-admin-template\**" />
-    <Content Remove="wwwroot\otika-bootstrap-admin-template\**" />
-    <EmbeddedResource Remove="wwwroot\otika-bootstrap-admin-template\**" />
-    <None Remove="wwwroot\otika-bootstrap-admin-template\**" />
-  </ItemGroup>
+
 
   <ItemGroup>
     <None Include="wwwroot\yummy-red-1.0.0\assets\.DS_Store" />
