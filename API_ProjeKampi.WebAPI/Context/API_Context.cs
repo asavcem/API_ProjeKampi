@@ -32,5 +32,7 @@ namespace API_ProjeKampi.WebAPI.Context
         public DbSet<Service> Services { get; set; }
 
         public DbSet<Testimonial> Testimonials { get; set; }
+
+        public DbSet<EventsYummy> EventsYummy { get; set; }
     }  
 }
